@@ -1,0 +1,22 @@
+const express = require("express");
+const router = express.Router({ mergeParams: true });
+const moment = require("moment");
+
+const userController = require("../controller/userController");
+
+// Get Request
+router.get("/", userController.user_index_get);
+
+router.get("/view/:userId", userController.user_view_get);
+
+router.get("/edit/:userId", userController.user_edit_get);
+
+// Post Request
+router.post("/search", userController.user_search_post);
+
+// Put Request
+router.put("/edit/:userId", userController.user_put);
+
+router.delete("/delete/:userId", userController.user_delete);
+
+module.exports = router;
